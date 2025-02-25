@@ -1,0 +1,97 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.container__contact{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 90vh;
+    background-color: rgb(247, 247, 247);
+    &__div {
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+        border: 1px solid black;
+        box-shadow: 0 0 10px rgb(44, 42, 42);
+        border-radius: 10px;
+        padding: 40px 20px;
+        width: 60%;
+        form {
+          display: flex;
+          flex-direction: column;
+          gap: 40px;
+          width: 100%;
+          align-items: start;
+          .input_class {
+            width: 100%;
+            display: flex;
+            gap: 20px;
+            justify-content: space-around;
+          }
+          .error {
+            width: 40%;
+            text-align: center;
+            align-content: center;
+          }
+          label {
+            font-size: x-large;
+            align-content: center;
+            color: rgb(66, 46, 215);
+            font-weight: bold;
+            width: 15%;
+          }
+          input {
+            width: 30%;
+            height: 6vh;
+            border-radius: 10px;
+            padding-left: 10px;
+            font-size: 15px;
+            color: black;
+            font-weight: bold;
+          }
+          input[type="submit"] {
+            width: 10vw;
+            margin-left: 20%;
+            cursor: pointer;
+          }
+        }
+      }
+      @media (max-width: 798px) {
+         height: auto;
+         padding: 20px 0px;
+         &__div {
+           form {
+             label {
+               width: auto;
+             }
+             input {
+               width: auto;
+               margin: 0 20px;
+             }
+             .input_class {
+               flex-direction: column;
+             }
+             .error {
+               width: auto;
+             }
+             input[type="submit"] {
+               width: auto;
+               padding: 0 20px;
+             }
+           }
+         }
+       }
+     }
+
+
+input::placeholder {
+  color: rgb(74, 71, 71);
+  font-weight: bold;
+}
+.error {
+  color: red;
+  font-weight: bold;
+}
+

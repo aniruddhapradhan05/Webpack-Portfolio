@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container__header{
+    background-color: beige;
+    padding: 20px;
+    ul{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        gap: 50px;
+        li{
+            list-style-type: none;
+           a{
+            text-decoration: none;
+            font-size: x-large;
+            font-weight: bold;
+            &:hover{
+                color: rgb(231, 92, 11);
+                transition: color 0.1s linear;
+               }
+           }
+           
+        }
+    }
+}

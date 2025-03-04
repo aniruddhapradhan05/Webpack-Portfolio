@@ -4,7 +4,8 @@ import footer from "./components/footer/footer.html";
 import about from "./components/aboutUs/aboutUs.html";
 import contact from "./components/contact/contact.html"
 import banner from "./components/banner/banner.html";
-import skills from "./components/skills/skills.html"
+import skills from "./components/skills/skills.html";
+import {headerFn} from './components/header/header.js';
 
 import { addFormListener } from "./components/contact/contact";
 
@@ -14,6 +15,7 @@ const root = document.getElementById("root"); // Ensure root is defined
 function renderHeader(){
   const _header = document.getElementById("header");
   _header.innerHTML = header;
+  headerFn();
 }
 //render Footer
 function renderFooter(){
@@ -28,11 +30,27 @@ function attachEventListeners() {
   const homeFooterBtn = document.getElementById("homeFooter");
   const contactBtn = document.getElementById("contact");
   const contactFooterBtn = document.getElementById("contactFooter");
+  if(window.location.pathname.includes("contact")){
+    aboutBtn.classList.remove("active");
+      homeBtn.classList.remove("active");
+      contactBtn.classList.add("active");
+  }
+  else if(window.location.pathname.includes("about")){
+    homeBtn.classList.remove("active");
+      contactBtn.classList.remove("active");
+      aboutBtn.classList.add("active");
+  }
+  else{
+    homeBtn.classList.add("active");
+  }
 
   if (aboutBtn) {
     aboutBtn.addEventListener('click', (e) => {
       e.preventDefault();
       console.log("about-console");
+      homeBtn.classList.remove("active");
+      contactBtn.classList.remove("active");
+      aboutBtn.classList.add("active");
       navigate('/about');
     });
   }
@@ -48,6 +66,9 @@ function attachEventListeners() {
     homeBtn.addEventListener('click', (e) => {
       e.preventDefault();
       console.log("home-console");
+      aboutBtn.classList.remove("active");
+      contactBtn.classList.remove("active");
+      homeBtn.classList.add("active");
       navigate('/');
     });
   }
@@ -61,6 +82,9 @@ function attachEventListeners() {
   if (contactBtn) {
     contactBtn.addEventListener('click', (e) => {
       e.preventDefault();
+      aboutBtn.classList.remove("active");
+      homeBtn.classList.remove("active");
+      contactBtn.classList.add("active");
       navigate('/contact');
     });
   }
@@ -85,7 +109,6 @@ function navigate(route) {
 
 // Render different content based on the current route
 function render(pathname) {
-
   if (pathname === '/') {
     root.innerHTML =  banner +about + skills ;
   } else if (pathname === '/about') {
@@ -100,6 +123,7 @@ function render(pathname) {
 window.addEventListener('popstate', () => {
   render(window.location.pathname);
 });
+
 render(window.location.pathname);
 
 

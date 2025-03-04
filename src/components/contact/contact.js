@@ -1,4 +1,5 @@
 export function addFormListener(){
+
     const submit = document.querySelector("#submit");
     const form = document.querySelector("#form");
     const inputs = form.getElementsByTagName('input');
@@ -59,6 +60,7 @@ export function addFormListener(){
             
         }
     });
+    
 }
 
 //Name validation 

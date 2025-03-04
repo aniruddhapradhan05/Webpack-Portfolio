@@ -1,54 +1,71 @@
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
-.skills{
+.skills {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .container__skills {
+    position: relative;
+    max-width: 1100px;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    .container__skills {
-        max-width: 1100px;
-        width: 100%;
-        padding: 20px 10%;
-        background: #1e1e1e;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        color: white;
-        font-family: "Arial", sans-serif;
+    padding: 20px 10%;
+    background: #0f0c29;
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    color: white;
+    font-family: "Arial", sans-serif;
+
+    &>img{
+      position: absolute;
+      right: 7%;
+      top: 50%;
+      width: 30%;
       
-        h2 {
-          text-align: center;
-          font-size: 28px;
-          margin-bottom: 15px;
-          color: #f39c12;
-        }
-      
-        .skills-section {
-          margin-bottom: 20px;
-      
-          h3 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: #3498db;
-          }
-      
-          .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-      
-            span {
-              background: #2c3e50;
-              padding: 8px 12px;
-              border-radius: 6px;
-              font-size: 16px;
-              transition: 0.3s ease-in-out;
-      
-              &:hover {
-                background: #f39c12;
-                color: black;
-              }
-            }
+      transform: translateY(-50%);
+      @media (max-width : 920px){
+        display: none;
+      }
+    }
+    h2 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 15px;
+      color: #f39c12;
+    }
+
+    .skills-section {
+      margin-bottom: 20px;
+
+      h3 {
+        font-size: 22px;
+        margin-bottom: 10px;
+        color: #bee5ff;
+      }
+
+      .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        span {
+          background: #fff;
+          color: black;
+          padding: 8px 12px;
+          border-radius: 6px;
+          font-size: 16px;
+          transition: 0.3s ease-in-out;
+
+          &:hover {
+            background: #f39c12;
+            cursor: pointer;
+
           }
         }
       }
+    }
+  }
 }

@@ -29,7 +29,7 @@ function attachEventListeners() {
   const contactBtn = document.getElementById("contact");
   const contactFooterBtn = document.getElementById("contactFooter");
   if(window.location.pathname.includes("contact")){
-    aboutBtn.classList.remove("active");
+      aboutBtn.classList.remove("active");
       homeBtn.classList.remove("active");
       contactBtn.classList.add("active");
   }
@@ -92,7 +92,6 @@ function attachEventListeners() {
 }
 
 renderHeader()
-render(window.location.pathname);
 renderFooter()
 attachEventListeners()
 

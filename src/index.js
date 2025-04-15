@@ -92,6 +92,7 @@ function attachEventListeners() {
 }
 
 renderHeader()
+render('/');
 renderFooter()
 attachEventListeners()
 

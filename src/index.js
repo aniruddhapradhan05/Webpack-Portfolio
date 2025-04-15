@@ -6,23 +6,21 @@ import contact from "./components/contact/contact.html"
 import banner from "./components/banner/banner.html";
 import skills from "./components/skills/skills.html";
 import {headerFn} from './components/header/header.js';
+import { addFormListener } from "./components/contact/contact.js";
 
-import { addFormListener } from "./components/contact/contact";
+const root = document.getElementById("root");
 
-const root = document.getElementById("root"); // Ensure root is defined
-
-//render header
 function renderHeader(){
   const _header = document.getElementById("header");
   _header.innerHTML = header;
   headerFn();
 }
-//render Footer
+
 function renderFooter(){
   const _footer = document.getElementById("footer");
   _footer.innerHTML = footer;
 }
-//add event listeners for header and footer
+
 function attachEventListeners() {
   const aboutBtn = document.getElementById("about");
   const aboutFooterBtn = document.getElementById("aboutFooter");
@@ -47,7 +45,6 @@ function attachEventListeners() {
   if (aboutBtn) {
     aboutBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      console.log("about-console");
       homeBtn.classList.remove("active");
       contactBtn.classList.remove("active");
       aboutBtn.classList.add("active");
@@ -57,7 +54,6 @@ function attachEventListeners() {
   if(aboutFooterBtn){
     aboutFooterBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      console.log("about-console");
       navigate('/about');
     });
   }
@@ -65,7 +61,6 @@ function attachEventListeners() {
   if (homeBtn) {
     homeBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      console.log("home-console");
       aboutBtn.classList.remove("active");
       contactBtn.classList.remove("active");
       homeBtn.classList.add("active");
@@ -97,17 +92,16 @@ function attachEventListeners() {
 }
 
 renderHeader()
+render(window.location.pathname);
 renderFooter()
 attachEventListeners()
 
 
-// A simple navigation function
 function navigate(route) {
   history.pushState(null, '', route);
   render(route);
 }
 
-// Render different content based on the current route
 function render(pathname) {
   if (pathname === '/') {
     root.innerHTML =  banner +about + skills ;
@@ -124,6 +118,6 @@ window.addEventListener('popstate', () => {
   render(window.location.pathname);
 });
 
-render(window.location.pathname);
+
 
 

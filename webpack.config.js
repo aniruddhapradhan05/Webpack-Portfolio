@@ -21,7 +21,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.s[ac]ss$/i, // Match both .sass and .scss files
+        test: /\.s[ac]ss$/i,
         use: [
           'style-loader', 
           'css-loader',   
@@ -32,14 +32,24 @@ module.exports = {
         test : /\.html$/,
         use : 'html-loader'
       },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg|webp)$/i,
+        type: 'asset/resource',
+      },
     ],
   },
-
 
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
-      filename: "index.html" // Outputs at /index.html
+      filename: "index.html"
     }),
   ],
 };
